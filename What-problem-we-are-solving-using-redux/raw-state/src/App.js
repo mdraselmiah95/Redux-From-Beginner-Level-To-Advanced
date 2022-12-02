@@ -2,7 +2,7 @@ import "./App.css";
 import { createContext, useState } from "react";
 import Parents from "./pages/Parents";
 
-const COUNTER_CONTEXT = createContext();
+export const COUNTER_CONTEXT = createContext();
 
 function App() {
   const [count, setCount] = useState(0);

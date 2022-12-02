@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+import { COUNTER_CONTEXT } from "../App";
+import Child from "./Child";
 
 const Parents = () => {
+  const { count } = useContext(COUNTER_CONTEXT);
+
   return (
     <div>
-      <h2>This is cool.</h2>
+      <div>
+        <h1>Parents</h1>
+        <h2>{count}</h2>
+      </div>
+      <div>
+        <Child />
+      </div>
     </div>
   );
 };
