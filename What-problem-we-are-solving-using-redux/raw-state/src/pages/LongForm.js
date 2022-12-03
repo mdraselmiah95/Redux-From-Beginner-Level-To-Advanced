@@ -10,18 +10,21 @@ const LongForm = () => {
           </label>
           <input type="text" name="firstName" id="firstName" />
         </div>
+
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-2" htmlFor="lastName">
             Last Name
           </label>
           <input type="text" name="lastName" id="lastName" />
         </div>
+
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-2" htmlFor="email">
             Email
           </label>
           <input type="email" name="email" id="email" />
         </div>
+
         <div className="flex flex-col w-full max-w-xs">
           <h1 className="mb-3">Gender</h1>
           <div className="flex gap-3">
@@ -45,6 +48,7 @@ const LongForm = () => {
             </div>
           </div>
         </div>
+
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-3" htmlFor="education">
             Education
@@ -56,6 +60,7 @@ const LongForm = () => {
             <option value="graduate">Graduate</option>
           </select>
         </div>
+
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-3">Number of PCs</label>
           <div className="flex justify-between items-center gap-2 ">
@@ -70,6 +75,7 @@ const LongForm = () => {
             </button>
           </div>
         </div>
+
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-3" htmlFor="feedback">
             Feedback
