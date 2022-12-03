@@ -13,12 +13,14 @@ const LongForm = () => {
   };
 
   const reducer = (state, action) => {
-    console.log(action);
-    if (action.type === "INPUT") {
-      return {
-        ...state,
-        [action.payload.name]: action.payload.value,
-      };
+    switch (action.type) {
+      case "INPUT":
+        return {
+          ...state,
+          [action.payload.name]: action.payload.value,
+        };
+      default:
+        return state;
     }
   };
 
@@ -55,33 +57,86 @@ const LongForm = () => {
           <label className="mb-2" htmlFor="lastName">
             Last Name
           </label>
-          <input type="text" name="lastName" id="lastName" />
+          <input
+            type="text"
+            name="lastName"
+            id="lastName"
+            onBlur={(e) =>
+              dispatch({
+                type: "INPUT",
+                payload: { name: e.target.name, value: e.target.value },
+              })
+            }
+          />
         </div>
 
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-2" htmlFor="email">
             Email
           </label>
-          <input type="email" name="email" id="email" />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            onBlur={(e) =>
+              dispatch({
+                type: "INPUT",
+                payload: { name: e.target.name, value: e.target.value },
+              })
+            }
+          />
         </div>
 
         <div className="flex flex-col w-full max-w-xs">
           <h1 className="mb-3">Gender</h1>
           <div className="flex gap-3">
             <div>
-              <input type="radio" id="male" name="gender" value="male" />
+              <input
+                type="radio"
+                id="male"
+                name="gender"
+                value="male"
+                onClick={(e) =>
+                  dispatch({
+                    type: "INPUT",
+                    payload: { name: e.target.name, value: e.target.value },
+                  })
+                }
+              />
               <label className="ml-2 text-lg" htmlFor="male">
                 Male
               </label>
             </div>
             <div>
-              <input type="radio" id="female" name="gender" value="female" />
+              <input
+                type="radio"
+                id="female"
+                name="gender"
+                value="female"
+                onClick={(e) =>
+                  dispatch({
+                    type: "INPUT",
+                    payload: { name: e.target.name, value: e.target.value },
+                  })
+                }
+              />
               <label className="ml-2 text-lg" htmlFor="female">
                 Female
               </label>
             </div>
             <div>
-              <input type="radio" id="other" name="gender" value="other" />
+              <input
+                type="radio"
+                id="other"
+                name="gender"
+                value="other"
+                onClick={(e) =>
+                  dispatch({
+                    type: "INPUT",
+                    payload: { name: e.target.name, value: e.target.value },
+                  })
+                }
+              />
               <label className="ml-2 text-lg" htmlFor="other">
                 Other
               </label>
