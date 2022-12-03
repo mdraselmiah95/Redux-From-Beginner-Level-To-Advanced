@@ -6,17 +6,17 @@ export const COUNTER_CONTEXT = createContext();
 
 function App() {
   const [count, setCount] = useState(0);
-
   const value = { count, setCount };
+
   return (
-    <COUNTER_CONTEXT value={value}>
+    <COUNTER_CONTEXT.Provider value={value}>
       <div>
         <Parents />
       </div>
-    </COUNTER_CONTEXT>
+    </COUNTER_CONTEXT.Provider>
   );
 }
 
 export default App;
 
-// Not to obeay the rule
+// Always the top of the game and also the find the nice and cool nice and cool
