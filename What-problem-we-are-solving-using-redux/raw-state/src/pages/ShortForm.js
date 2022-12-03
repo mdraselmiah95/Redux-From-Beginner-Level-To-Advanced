@@ -2,10 +2,20 @@ import React, { useState } from "react";
 
 const ShortForm = () => {
   const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const submit = (e) => {
     e.preventDefault();
-    console.log(firstName);
+
+    const userInfo = {
+      firstName,
+      lastName,
+      email,
+      password,
+    };
+    console.log(userInfo);
   };
   return (
     <div>
@@ -26,7 +36,7 @@ const ShortForm = () => {
             type="text"
             name="name"
             id="name"
-            onBlur={(e) => setFirstName(e.target.value)}
+            onBlur={(e) => setLastName(e.target.value)}
           />
         </div>
 
@@ -36,7 +46,7 @@ const ShortForm = () => {
             type="email"
             name="email"
             id="email"
-            onBlur={(e) => setFirstName(e.target.value)}
+            onBlur={(e) => setEmail(e.target.value)}
           />
         </div>
         <div>
@@ -45,7 +55,7 @@ const ShortForm = () => {
             type="password"
             name="password"
             id="password"
-            onBlur={(e) => setFirstName(e.target.value)}
+            onBlur={(e) => setPassword(e.target.value)}
           />
         </div>
         <button type="submit">Submit</button>
