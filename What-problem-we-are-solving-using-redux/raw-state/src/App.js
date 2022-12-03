@@ -2,6 +2,7 @@ import "./App.css";
 import { createContext, useState } from "react";
 import Parents from "./pages/Parents";
 import ShortForm from "./pages/ShortForm";
+import Counter from "./pages/Counter";
 
 export const COUNTER_CONTEXT = createContext();
 
@@ -15,6 +16,8 @@ function App() {
         <Parents />
         <br /> <br /> <br />
         <ShortForm />
+        <br /> <br /> <br />
+        <Counter />
       </div>
     </COUNTER_CONTEXT.Provider>
   );
