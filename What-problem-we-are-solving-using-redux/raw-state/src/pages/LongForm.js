@@ -1,9 +1,21 @@
-import React from "react";
+import React, { useReducer } from "react";
 
 const LongForm = () => {
+  const initialState = {};
+
+  const reducer = () => {};
+
+  const [] = useReducer(reducer, initialState);
+
+  const submit = (e) => {
+    e.preventDefault();
+  };
   return (
     <div className="h-screen w-screen flex justify-center items-center overflow-auto">
-      <form className="shadow-lg p-10 rounded-md flex flex-wrap gap-3 max-w-3xl justify-between">
+      <form
+        onSubmit={submit}
+        className="shadow-lg p-10 rounded-md flex flex-wrap gap-3 max-w-3xl justify-between"
+      >
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-2" htmlFor="firstName">
             First Name
