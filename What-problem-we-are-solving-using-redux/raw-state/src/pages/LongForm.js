@@ -6,7 +6,6 @@ const LongForm = () => {
 
   const submit = (e) => {
     e.preventDefault();
-    console.log(state);
   };
   return (
     <div className="h-screen w-screen flex justify-center items-center overflow-auto">
