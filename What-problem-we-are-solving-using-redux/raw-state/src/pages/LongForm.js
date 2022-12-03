@@ -1,14 +1,32 @@
 import React, { useReducer } from "react";
 
 const LongForm = () => {
-  const initialState = {};
+  const initialState = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    gender: "",
+    education: "",
+    quantity: 0,
+    feedback: "",
+    term: true,
+  };
 
-  const reducer = () => {};
+  const reducer = (state, action) => {
+    console.log(action);
+    if (action.type === "INPUT") {
+      return {
+        ...state,
+        [action.payload.name]: action.payload.value,
+      };
+    }
+  };
 
-  const [] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const submit = (e) => {
     e.preventDefault();
+    console.log(state);
   };
   return (
     <div className="h-screen w-screen flex justify-center items-center overflow-auto">
@@ -20,7 +38,17 @@ const LongForm = () => {
           <label className="mb-2" htmlFor="firstName">
             First Name
           </label>
-          <input type="text" name="firstName" id="firstName" />
+          <input
+            type="text"
+            name="firstName"
+            id="firstName"
+            onBlur={(e) =>
+              dispatch({
+                type: "INPUT",
+                payload: { name: e.target.name, value: e.target.value },
+              })
+            }
+          />
         </div>
 
         <div className="flex flex-col w-full max-w-xs">
