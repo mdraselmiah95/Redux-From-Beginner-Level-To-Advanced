@@ -1,6 +1,7 @@
 import "./App.css";
 import { createContext, useState } from "react";
 import Parents from "./pages/Parents";
+import ShortForm from "./pages/ShortForm";
 
 export const COUNTER_CONTEXT = createContext();
 
@@ -12,6 +13,8 @@ function App() {
     <COUNTER_CONTEXT.Provider value={value}>
       <div>
         <Parents />
+        <br /> <br /> <br />
+        <ShortForm />
       </div>
     </COUNTER_CONTEXT.Provider>
   );
