@@ -18,9 +18,9 @@ const ShortForm = () => {
     console.log(userInfo);
   };
   return (
-    <div>
-      <form onSubmit={submit}>
-        <div>
+    <div className="h-screen w-screen flex justify-center items-center space-y-6">
+      <form onSubmit={submit} className="space-y-6 shadow-md p-10">
+        <div className="flex flex-col max-w-xs">
           <label htmlFor="name">First Name</label>
           <input
             type="text"
@@ -30,7 +30,7 @@ const ShortForm = () => {
           />
         </div>
 
-        <div>
+        <div className="flex flex-col max-w-xs">
           <label htmlFor="name">Last Name</label>
           <input
             type="text"
@@ -40,7 +40,7 @@ const ShortForm = () => {
           />
         </div>
 
-        <div>
+        <div className="flex flex-col max-w-xs">
           <label htmlFor="name">Email</label>
           <input
             type="email"
@@ -49,7 +49,7 @@ const ShortForm = () => {
             onBlur={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div>
+        <div className="flex flex-col max-w-xs">
           <label htmlFor="name">Password</label>
           <input
             type="password"
@@ -58,7 +58,12 @@ const ShortForm = () => {
             onBlur={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button type="submit">Submit</button>
+        <button
+          type="submit"
+          className="px-4 py-3 bg-indigo-500 text-white rounded-md"
+        >
+          Submit
+        </button>
       </form>
     </div>
   );
