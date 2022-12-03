@@ -1,44 +1,7 @@
 import React, { useReducer } from "react";
+import { initialState, reducer } from "../state/formReducer";
 
 const LongForm = () => {
-  const initialState = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    gender: "",
-    education: "",
-    quantity: 0,
-    feedback: "",
-    term: false,
-  };
-
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case "INPUT":
-        return {
-          ...state,
-          [action.payload.name]: action.payload.value,
-        };
-      case "TOGGLE":
-        return {
-          ...state,
-          term: !state.term,
-        };
-      case "INCREASE":
-        return {
-          ...state,
-          quantity: state.quantity + action.payload.count,
-        };
-      case "DECREASE":
-        return {
-          ...state,
-          quantity: state.quantity - action.payload.count,
-        };
-      default:
-        return state;
-    }
-  };
-
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const submit = (e) => {
@@ -185,7 +148,7 @@ const LongForm = () => {
           <div className="flex justify-between items-center gap-2 ">
             <button
               onClick={() =>
-                dispatch({ type: "DECREASE", payload: { count: 1 } })
+                dispatch({ type: "DECREMENT", payload: { count: 1 } })
               }
               className="bg-indigo-500 text-lg text-white rounded h-10 w-10 "
               disabled={state.quantity <= 0}
@@ -197,7 +160,7 @@ const LongForm = () => {
             </div>
             <button
               onClick={() =>
-                dispatch({ type: "INCREASE", payload: { count: 1 } })
+                dispatch({ type: "INCREMENT", payload: { count: 1 } })
               }
               className="bg-indigo-500 text-lg text-white rounded h-10 w-10"
             >
