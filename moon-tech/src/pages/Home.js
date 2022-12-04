@@ -11,8 +11,8 @@ const Home = () => {
 
   if (loading) {
     content = (
-      <div className=" flex justify-center items-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-400"></div>
+      <div className="justify-items-center	justify-center">
+        <div className="justify-center animate-spin rounded-full h-32 w-32 border-b-2 border-blue-400"></div>
       </div>
     );
   }

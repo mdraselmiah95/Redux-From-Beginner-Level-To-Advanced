@@ -40,3 +40,5 @@ export const useProducts = () => {
 };
 
 export default ProductProvider;
+
+// this most uniform

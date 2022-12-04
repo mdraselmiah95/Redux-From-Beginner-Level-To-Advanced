@@ -2,6 +2,7 @@ import React from "react";
 import { BiListPlus } from "react-icons/bi";
 
 const ProductCard = ({ product }) => {
+  console.log(product.keyFeature[0]);
   return (
     <div
       className="shadow-lg rounded-3xl border  p-3 flex flex-col text-indigo-900"
@@ -14,9 +15,9 @@ const ProductCard = ({ product }) => {
       <p className="text-center font-semibold mb-3">Rating: {product.rating}</p>
       <div className=" flex-1">
         <ul className="space-y-2">
-          {product.keyFeature.map((feature) => {
+          {product.keyFeature.map((feature, index) => {
             return (
-              <li key={feature.image} className="text-sm ">
+              <li key={index} className="text-sm ">
                 {feature}
               </li>
             );
