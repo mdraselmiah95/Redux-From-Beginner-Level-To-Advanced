@@ -10,5 +10,3 @@ function App() {
 }
 
 export default App;
-
-// top of the game of the notch which bold you nnn bold the do the math
