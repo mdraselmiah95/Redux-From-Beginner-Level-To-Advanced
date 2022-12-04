@@ -2,8 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BsFillCartFill } from "react-icons/bs";
 import { IoIosListBox } from "react-icons/io";
+import { useProducts } from "../context/ProductProvider";
 
 const Navbar = () => {
+  const {
+    state: { cart },
+  } = useProducts();
   return (
     <nav className="h-14 bg-indigo-200 rounded-full m-2 max-w-7xl mx-auto px-5">
       <ul className="h-full  mx-auto flex justify-between items-center gap-3 font-semibold text-indigo-900">
@@ -29,6 +33,7 @@ const Navbar = () => {
             <BsFillCartFill className="text-white " />
           </Link>
         </li>
+        <h2 className=" font-bold text-black">{cart.length}</h2>
       </ul>
     </nav>
   );
