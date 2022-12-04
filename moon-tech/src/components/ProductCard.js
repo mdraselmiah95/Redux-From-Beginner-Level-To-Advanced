@@ -5,7 +5,7 @@ const ProductCard = ({ product }) => {
   return (
     <div
       className="shadow-lg rounded-3xl border  p-3 flex flex-col text-indigo-900"
-      key={product._id}
+      key={product.id}
     >
       <div className="h-52 w-52 mx-auto">
         <img src={product.image} alt={product.model} />
@@ -15,7 +15,11 @@ const ProductCard = ({ product }) => {
       <div className=" flex-1">
         <ul className="space-y-2">
           {product.keyFeature.map((feature) => {
-            return <li className="text-sm ">{feature}</li>;
+            return (
+              <li key={feature.image} className="text-sm ">
+                {feature}
+              </li>
+            );
           })}
         </ul>
       </div>
