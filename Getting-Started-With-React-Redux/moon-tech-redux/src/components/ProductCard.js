@@ -1,6 +1,7 @@
 import React from "react";
-import { BiListPlus, AiOutlineDelete } from "react-icons/bi";
+import { BiListPlus } from "react-icons/bi";
 import { useDispatch } from "react-redux";
+import { RiDeleteBin5Line } from "react-icons/ri";
 import {
   addToCart,
   removeFromCart,
@@ -33,9 +34,9 @@ const ProductCard = ({ product }) => {
       <div className="flex gap-2 mt-5">
         <button
           onClick={() => dispatch(removeFromCart(product))}
-          className="flex-1 px-2 py-1 text-white bg-indigo-500 rounded-full text-bold"
+          className="px-2 py-1 bg-indigo-500 rounded-full"
         >
-          <AiOutlineDelete />
+          <RiDeleteBin5Line className="text-white" />
         </button>
         <button
           onClick={() => dispatch(addToCart(product))}
