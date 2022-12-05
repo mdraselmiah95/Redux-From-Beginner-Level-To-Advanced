@@ -5,7 +5,8 @@ import { IoIosListBox } from "react-icons/io";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const cart = useSelector((state) => state.cart);
+  // const state = useSelector((state) => state);
+
   return (
     <nav className="px-5 m-2 mx-auto bg-indigo-200 rounded-full h-14 max-w-7xl">
       <ul className="flex items-center justify-between h-full gap-3 mx-auto font-semibold text-indigo-900">
@@ -29,7 +30,7 @@ const Navbar = () => {
             <BsFillCartFill className="text-white " />
           </Link>
         </li>
-        <h2 className="font-extrabold text-blue-400 ">{cart.length}</h2>
+        {/* <h2 className="font-extrabold text-blue-400 ">{cart.length}</h2> */}
       </ul>
     </nav>
   );
