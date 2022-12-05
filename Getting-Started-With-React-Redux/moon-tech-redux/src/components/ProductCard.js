@@ -1,7 +1,7 @@
 import React from "react";
 import { BiListPlus } from "react-icons/bi";
 import { useDispatch } from "react-redux";
-import { ADD_TO_CART } from "../redux/actionTypes/actionTypes";
+import { addToCart } from "../redux/actionCreators/productActions";
 
 const ProductCard = ({ product }) => {
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ const ProductCard = ({ product }) => {
       </div>
       <div className="flex gap-2 mt-5">
         <button
-          onClick={() => dispatch({ type: ADD_TO_CART, payload: product })}
+          onClick={() => dispatch(addToCart(product))}
           className="flex-1 px-2 py-1 text-white bg-indigo-500 rounded-full text-bold"
         >
           Add to cart
