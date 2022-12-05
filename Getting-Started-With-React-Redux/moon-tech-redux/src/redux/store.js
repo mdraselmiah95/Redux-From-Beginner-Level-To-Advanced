@@ -5,4 +5,3 @@ import productReducer from "./reducers/productReducer";
 const store = createStore(productReducer, composeWithDevTools());
 
 export default store;
-// store
