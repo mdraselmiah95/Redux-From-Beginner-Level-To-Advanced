@@ -14,7 +14,7 @@ const productReducer = (state = initialState, action) => {
     case REMOVE_FROM_CART:
       return {};
     default:
-      state;
+      return state;
   }
 };
 
