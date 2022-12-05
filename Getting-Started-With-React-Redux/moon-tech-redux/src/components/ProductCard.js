@@ -37,7 +37,7 @@ const ProductCard = ({ product }) => {
         {pathname.includes("cart") && (
           <button
             onClick={() => dispatch(removeFromCart(product))}
-            className="flex items-center justify-center flex-1 px-2 py-1 font-semibold text-white bg-red-500 rounded-full "
+            className="flex items-center justify-center flex-1 px-2 py-1 text-white bg-red-500 rounded-full "
           >
             DELETE
             <RiDeleteBin5Line className="ml-2 text-white" />
