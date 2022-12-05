@@ -1,21 +1,18 @@
 import React from "react";
 import { BiListPlus } from "react-icons/bi";
-import { useProducts } from "../context/ProductProvider";
-import { actionTypes } from "../state/ProductState/actionTypes";
 
 const ProductCard = ({ product }) => {
-  const { dispatch } = useProducts();
   return (
     <div
-      className="shadow-lg rounded-3xl border  p-3 flex flex-col text-indigo-900"
+      className="flex flex-col p-3 text-indigo-900 border shadow-lg rounded-3xl"
       key={product.id}
     >
-      <div className="h-52 w-52 mx-auto">
+      <div className="mx-auto h-52 w-52">
         <img src={product.image} alt={product.model} />
       </div>
       <h1 className="font-bold text-center">{product.model}</h1>
-      <p className="text-center font-semibold mb-3">Rating: {product.rating}</p>
-      <div className=" flex-1">
+      <p className="mb-3 font-semibold text-center">Rating: {product.rating}</p>
+      <div className="flex-1 ">
         <ul className="space-y-2">
           {product.keyFeature.map((feature, index) => {
             return (
@@ -27,17 +24,12 @@ const ProductCard = ({ product }) => {
         </ul>
       </div>
       <div className="flex gap-2 mt-5">
-        <button
-          onClick={() =>
-            dispatch({ type: actionTypes.ADD_TO_CART, payload: product })
-          }
-          className="bg-indigo-500 rounded-full py-1 px-2 flex-1 text-white text-bold"
-        >
+        <button className="flex-1 px-2 py-1 text-white bg-indigo-500 rounded-full text-bold">
           Add to cart
         </button>
         <button
           title="Add to wishlist"
-          className="bg-indigo-500  py-1 px-2 rounded-full"
+          className="px-2 py-1 bg-indigo-500 rounded-full"
         >
           <BiListPlus className="text-white" />
         </button>
