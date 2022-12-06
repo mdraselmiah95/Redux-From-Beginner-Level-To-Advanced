@@ -11,7 +11,7 @@ export const initialState = {
 export const filterReducer = (state = initialState, action) => {
   switch (action.type) {
     case TOGGLE_BRAND:
-      if (state.filters.brands.includes(action.payload)) {
+      if (!state.filters.brands.includes(action.payload)) {
         return {
           ...state,
           filters: {
@@ -32,7 +32,13 @@ export const filterReducer = (state = initialState, action) => {
       }
 
     case TOGGLE_STOCK:
-      return {};
+      return {
+        ...state,
+        filters: {
+          ...state.filters,
+          stock: !state.filters.stock,
+        },
+      };
     default:
       return state;
   }
