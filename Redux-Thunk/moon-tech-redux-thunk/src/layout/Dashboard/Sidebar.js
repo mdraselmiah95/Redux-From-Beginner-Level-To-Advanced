@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { BsBoxArrowLeft } from "react-icons/bs";
 
 const Sidebar = () => {
   return (
@@ -12,8 +13,13 @@ const Sidebar = () => {
         <li>
           <Link to="add-product"> Add Product </Link>
         </li>
-        <li className="mt-auto underline font-bold">
-          <Link to="/"> Back to Home </Link>
+        <li className="mt-auto  font-bold">
+          <Link to="/" className=" flex items-center ">
+            <span>
+              <BsBoxArrowLeft className="mr-2" />
+            </span>
+            Back to Home
+          </Link>
         </li>
       </ul>
     </div>
