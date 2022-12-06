@@ -41,7 +41,7 @@ const ProductList = () => {
 
             <tbody className="text-sm divide-y divide-gray-100">
               {products.map(({ model, brand, price, status, _id }) => (
-                <tr>
+                <tr key={_id}>
                   <td className="p-2">
                     <input type="checkbox" className="w-5 h-5" value="id-1" />
                   </td>
