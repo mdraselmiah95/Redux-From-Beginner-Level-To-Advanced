@@ -25,7 +25,7 @@ export const filterReducer = (state = initialState, action) => {
           filters: {
             ...state.filters,
             brands: state.filters.brands.filter(
-              (brand) => brand !== brand.payload
+              (brand) => brand !== action.payload
             ),
           },
         };
