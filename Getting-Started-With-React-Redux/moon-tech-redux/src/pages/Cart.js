@@ -9,7 +9,7 @@ const Cart = () => {
       {cart
         .sort((a, b) => a.id - b.id)
         .map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product._id} product={product} />
         ))}
     </div>
   );

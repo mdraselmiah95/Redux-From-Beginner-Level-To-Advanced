@@ -28,7 +28,7 @@ const TopRated = () => {
   if (!loading && !error && products.length) {
     content = products
       .filter((product) => product.rating >= 4)
-      .map((product) => <ProductCard key={product.id} product={product} />);
+      .map((product) => <ProductCard key={product._id} product={product} />);
   }
 
   return (

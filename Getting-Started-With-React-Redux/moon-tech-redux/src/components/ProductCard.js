@@ -15,7 +15,7 @@ const ProductCard = ({ product }) => {
   return (
     <div
       className="relative flex flex-col p-3 text-indigo-900 border shadow-lg rounded-3xl"
-      key={product.id}
+      key={product._id}
     >
       {pathname.includes("cart") && (
         <div className="absolute grid text-white bg-indigo-500 rounded-full top-2 right-2 h-7 w-7 place-items-center">
