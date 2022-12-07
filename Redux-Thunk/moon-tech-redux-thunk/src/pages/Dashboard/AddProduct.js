@@ -55,7 +55,7 @@ const AddProduct = () => {
         </div>
         <div className="flex flex-col w-full max-w-xs">
           <label className="mb-2" htmlFor="price">
-            Image
+            Price
           </label>
           <input type="text" name="price" id="price" {...register("price")} />
         </div>
