@@ -11,7 +11,7 @@ const filterSlice = createSlice({
   initialState,
   reducers: {
     toggle: (state) => {
-      state.stock = !state.state;
+      state.stock = !state.stock;
     },
 
     toggleBands: (state, action) => {
