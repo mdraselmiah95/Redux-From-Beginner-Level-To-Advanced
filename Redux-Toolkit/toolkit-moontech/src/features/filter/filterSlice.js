@@ -23,3 +23,7 @@ const filterSlice = createSlice({
     },
   },
 });
+
+export const { toggle, toggleBands } = filterSlice.actions;
+
+export default filterSlice.reducer;
