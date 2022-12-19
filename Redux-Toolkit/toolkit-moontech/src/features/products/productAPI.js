@@ -4,3 +4,5 @@ export const fetchProducts = async () => {
   const data = await axios.get("/products");
   return data.data.data;
 };
+
+// cool the
