@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../../features/products/productsSlice";
 
 const ProductList = () => {
-  const [products, setProducts] = useState([]);
-
+  const dispatch = useDispatch();
+  const { products } = useSelector((state) => state.products);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
-      .then((res) => res.json())
-      .then((data) => setProducts(data.data));
-  });
+    dispatch(getProducts());
+  }, [dispatch]);
 
   return (
     <div className="flex flex-col items-center justify-center w-full h-full ">
