@@ -25,8 +25,9 @@ export const addProduct = createAsyncThunk(
 
 export const removeProduct = createAsyncThunk(
   "products/removeProduct",
-  async (id) => {
-    const products = deleteProduct(id);
+  async (id, thunkAPI) => {
+    const products = await deleteProduct(id);
+    thunkAPI.dispatch(removeFromList(id));
     return products;
   }
 );
