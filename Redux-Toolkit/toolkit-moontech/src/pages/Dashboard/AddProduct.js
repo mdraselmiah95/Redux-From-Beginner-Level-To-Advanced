@@ -9,9 +9,9 @@ import { toast } from "react-hot-toast";
 
 const AddProduct = () => {
   const { register, handleSubmit, reset } = useForm();
-  const { isLoading, postSuccess, error, isError } = useSelector(
-    (state) => state.products
-  );
+  // const { isLoading, postSuccess, error, isError } = useSelector(
+  //   (state) => state.products
+  // );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const AddProduct = () => {
       spec: [],
     };
 
-    dispatch(addProduct(product));
+    // dispatch(addProduct(product));
   };
 
   return (
@@ -159,7 +159,7 @@ const AddProduct = () => {
 
         <div className="flex items-center justify-between w-full">
           <button
-            className="px-4 py-3 text-lg font-semibold text-white bg-indigo-500 rounded-md  disabled:bg-gray-500"
+            className="px-4 py-3 text-lg font-semibold text-white bg-indigo-500 rounded-md disabled:bg-gray-500"
             type="submit"
           >
             Submit

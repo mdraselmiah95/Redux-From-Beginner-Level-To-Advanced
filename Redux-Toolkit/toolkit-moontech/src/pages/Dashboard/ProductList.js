@@ -7,13 +7,16 @@ import {
 } from "../../features/products/productsSlice";
 
 const ProductList = () => {
+  const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
-  const { products, deleteSuccess, isLoading, error, isError } = useSelector(
-    (state) => state.products
-  );
+  // const { products, deleteSuccess, isLoading, error, isError } = useSelector(
+  //   (state) => state.products
+  // );
   useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+    fetch("http://localhost:5000/products")
+      .then((res) => res.json())
+      .then((data) => setProducts(data.data));
+  }, []);
 
   useEffect(() => {
     if (!isLoading && deleteSuccess) {
