@@ -3,7 +3,6 @@ import ProductCard from "../../components/ProductCard";
 import { useDispatch } from "react-redux";
 import { toggle, toggleBands } from "../../features/filter/filterSlice";
 import { useGetProductsQuery } from "../../features/api/apiSlice";
-import { toast } from "react-hot-toast";
 
 const Home = () => {
   const dispatch = useDispatch();
