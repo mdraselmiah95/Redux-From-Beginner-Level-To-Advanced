@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { toast } from "react-hot-toast";
-import { useGetProductsQuery } from "../../features/api/apiSlice";
+import React from "react";
+import { useDispatch } from "react-redux";
+import {
+  useGetProductsQuery,
+  useRemoveProductMutation,
+} from "../../features/api/apiSlice";
 
 const ProductList = () => {
   const dispatch = useDispatch();
 
-  const { data, isLoading } = useGetProductsQuery();
-  console.log(data);
+  const { data, isLoading, isSuccess } = useGetProductsQuery();
+  const [removeProduct] = useRemoveProductMutation();
   const products = data?.data;
 
   if (isLoading) {
@@ -72,7 +74,7 @@ const ProductList = () => {
                   </td>
                   <td className="p-2">
                     <div className="flex justify-center">
-                      <button>
+                      <button onClick={() => removeProduct(_id)}>
                         <svg
                           className="w-8 h-8 p-1 rounded-full hover:text-blue-600 hover:bg-gray-100"
                           fill="none"

@@ -5,9 +5,11 @@ export const productApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:5000",
   }),
+  tagTypes: ["Products"],
   endpoints: (builder) => ({
     getProducts: builder.query({
       query: () => "/products",
+      providesTags: ["Products"],
     }),
     addProduct: builder.mutation({
       query: (data) => ({
@@ -21,6 +23,7 @@ export const productApi = createApi({
         url: `/product/${id}`,
         method: "DELETE",
       }),
+      providesTags: ["Products"],
     }),
   }),
 });
