@@ -9,18 +9,18 @@ const ProductCard = ({ product }) => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   return (
-    <div className="shadow-lg relative rounded-3xl border p-3 flex flex-col text-indigo-900">
+    <div className="relative flex flex-col p-3 text-indigo-900 border shadow-lg rounded-3xl">
       {pathname.includes("cart") && (
-        <div className="rounded-full grid place-items-center absolute top-2 right-2 bg-indigo-500 text-white h-8 w-8 font-bold ">
+        <div className="absolute grid w-8 h-8 font-bold text-white bg-indigo-500 rounded-full place-items-center top-2 right-2 ">
           <p> {product.quantity} </p>
         </div>
       )}
-      <div className="h-52 w-52 mx-auto">
+      <div className="mx-auto h-52 w-52">
         <img src={product.image} alt={product.model} />
       </div>
       <h1 className="font-bold text-center">{product.model}</h1>
-      <p className="text-center font-semibold mb-3">Rating: {product.rating}</p>
-      <div className=" flex-1">
+      <p className="mb-3 font-semibold text-center">Rating: {product.rating}</p>
+      <div className="flex-1 ">
         <ul className="space-y-2">
           {product.keyFeature.map((feature) => {
             return (
@@ -35,7 +35,7 @@ const ProductCard = ({ product }) => {
         {!pathname.includes("cart") && (
           <button
             onClick={() => dispatch(addToCart(product))}
-            className="bg-indigo-500 rounded-full py-1 px-2 flex-1 text-white text-bold"
+            className="flex-1 px-2 py-1 text-white bg-indigo-500 rounded-full text-bold"
           >
             Add to cart
           </button>
@@ -44,7 +44,7 @@ const ProductCard = ({ product }) => {
         {!pathname.includes("cart") && (
           <button
             title="Add to wishlist"
-            className="bg-indigo-500  py-1 px-2 rounded-full"
+            className="px-2 py-1 bg-indigo-500 rounded-full"
           >
             <BiListPlus className="text-white" />
           </button>
@@ -53,7 +53,7 @@ const ProductCard = ({ product }) => {
           <button
             onClick={() => dispatch(removeFromCart(product))}
             title="Remove"
-            className="flex justify-between px-3 bg-red-500 text-white p-1 rounded-full flex-1"
+            className="flex justify-between flex-1 p-1 px-3 text-white bg-red-500 rounded-full"
           >
             <p>Remove</p>
             <MdDeleteForever size="25" />

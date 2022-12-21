@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ProductCard from "../../components/ProductCard";
 import { useDispatch } from "react-redux";
 import { toggle, toggleBands } from "../../features/filter/filterSlice";
@@ -8,15 +8,16 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const { data, isLoading, isSuccess, isError, error } = useGetProductsQuery();
-  console.log(data);
   const products = data?.data;
 
-  const activeClass = "text-white  bg-indigo-500 border-white";
+  // const activeClass = "text-white  bg-indigo-500 border-white";
 
   if (isLoading) {
-    <div className="flex items-center justify-center ">
-      <div className="w-32 h-32 border-b-2 border-gray-900 rounded-full animate-spin"></div>
-    </div>;
+    return (
+      <div className="flex items-center justify-center ">
+        <div className="w-32 h-32 border-b-2 border-gray-900 rounded-full animate-spin"></div>
+      </div>
+    );
   }
 
   return (
@@ -46,11 +47,9 @@ const Home = () => {
         </button>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
-        {products
-          .filter((product) => product.status === true)
-          .map((product) => (
-            <ProductCard key={product.model} product={product} />
-          ))}
+        {products.map((product) => (
+          <ProductCard key={product._id} product={product} />
+        ))}
       </div>
     </div>
   );
