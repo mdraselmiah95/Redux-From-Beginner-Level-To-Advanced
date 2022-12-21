@@ -17,13 +17,14 @@ export const productApi = createApi({
         method: "POST",
         body: data,
       }),
+      invalidatesTags: ["Products"],
     }),
     removeProduct: builder.mutation({
       query: (id) => ({
         url: `/product/${id}`,
         method: "DELETE",
       }),
-      providesTags: ["Products"],
+      invalidatesTags: ["Products"],
     }),
   }),
 });

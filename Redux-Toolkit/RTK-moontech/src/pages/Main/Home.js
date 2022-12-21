@@ -8,10 +8,7 @@ import { toast } from "react-hot-toast";
 const Home = () => {
   const dispatch = useDispatch();
 
-  const { data, isLoading, isSuccess, isError, error } = useGetProductsQuery(
-    null,
-    { refetchOnMountOrArgChange: true }
-  );
+  const { data, isLoading, isSuccess, isError, error } = useGetProductsQuery();
   const products = data?.data;
 
   const activeClass = "text-white  bg-indigo-500 border-white";
