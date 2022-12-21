@@ -1,34 +1,11 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  addProduct,
-  togglePostSuccess,
-} from "../../features/products/productsSlice";
 import { toast } from "react-hot-toast";
 
 const AddProduct = () => {
   const { register, handleSubmit, reset } = useForm();
-  const { isLoading, postSuccess, error, isError } = useSelector(
-    (state) => state.products
-  );
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (isLoading) {
-      toast.loading("Posting..", { id: "addProduct" });
-    }
-
-    if (!isLoading && postSuccess) {
-      toast.success("Product Added", { id: "addProduct" });
-      dispatch(togglePostSuccess());
-      reset();
-    }
-
-    if (!isLoading && isError) {
-      toast.error(error, { id: "addProduct" });
-    }
-  }, [isLoading, postSuccess, isError, error, dispatch, reset]);
 
   const submit = (data) => {
     const product = {
@@ -45,7 +22,7 @@ const AddProduct = () => {
       spec: [],
     };
 
-    dispatch(addProduct(product));
+    console.log(product);
   };
 
   return (
@@ -159,7 +136,7 @@ const AddProduct = () => {
 
         <div className="flex items-center justify-between w-full">
           <button
-            className="px-4 py-3 text-lg font-semibold text-white bg-indigo-500 rounded-md  disabled:bg-gray-500"
+            className="px-4 py-3 text-lg font-semibold text-white bg-indigo-500 rounded-md disabled:bg-gray-500"
             type="submit"
           >
             Submit
