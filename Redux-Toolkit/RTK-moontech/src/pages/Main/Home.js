@@ -3,6 +3,7 @@ import ProductCard from "../../components/ProductCard";
 import { useDispatch } from "react-redux";
 import { toggle, toggleBands } from "../../features/filter/filterSlice";
 import { useGetProductsQuery } from "../../features/api/apiSlice";
+import { toast } from "react-hot-toast";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -10,7 +11,7 @@ const Home = () => {
   const { data, isLoading, isSuccess, isError, error } = useGetProductsQuery();
   const products = data?.data;
 
-  // const activeClass = "text-white  bg-indigo-500 border-white";
+  const activeClass = "text-white  bg-indigo-500 border-white";
 
   if (isLoading) {
     return (
@@ -18,6 +19,10 @@ const Home = () => {
         <div className="w-32 h-32 border-b-2 border-gray-900 rounded-full animate-spin"></div>
       </div>
     );
+  }
+
+  if (isError) {
+    return <p>Something went wrong 💥"</p>;
   }
 
   return (
