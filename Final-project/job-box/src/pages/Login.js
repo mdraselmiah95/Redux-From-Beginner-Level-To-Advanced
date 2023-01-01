@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { AiOutlineGoogle } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import loginImage from "../assets/login.svg";
 import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
+import loginImage from "../assets/login.svg";
 import { googleLogin, loginUser } from "../features/auth/authSlice";
 const Login = () => {
   const { isLoading, email, error, isError } = useSelector(
@@ -26,6 +27,12 @@ const Login = () => {
       navigate("/");
     }
   }, [isLoading, email, navigate]);
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(error);
+    }
+  }, [isError, error]);
 
   return (
     <div className="flex items-center h-screen">
@@ -54,9 +61,6 @@ const Login = () => {
                 />
               </div>
               <div className="relative !mt-8">
-                {isError && (
-                  <span className="font-bold text-red-600 ">{error}</span>
-                )}
                 <button
                   type="submit"
                   className="w-full py-3 font-bold text-white rounded-full bg-primary"
