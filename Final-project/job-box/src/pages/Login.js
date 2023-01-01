@@ -6,7 +6,9 @@ import loginImage from "../assets/login.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { googleLogin, loginUser } from "../features/auth/authSlice";
 const Login = () => {
-  const { isLoading, email } = useSelector((state) => state.auth);
+  const { isLoading, email, error, isError } = useSelector(
+    (state) => state.auth
+  );
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -52,6 +54,9 @@ const Login = () => {
                 />
               </div>
               <div className="relative !mt-8">
+                {isError && (
+                  <span className="font-bold text-red-600 ">{error}</span>
+                )}
                 <button
                   type="submit"
                   className="w-full py-3 font-bold text-white rounded-full bg-primary"

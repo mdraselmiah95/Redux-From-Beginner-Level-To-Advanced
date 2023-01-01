@@ -3,7 +3,8 @@ import loginImage from "../assets/login.svg";
 import { useForm, useWatch } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { createUser } from "../features/auth/authSlice";
+import { createUser, googleLogin } from "../features/auth/authSlice";
+import { AiOutlineGoogle } from "react-icons/ai";
 const Signup = () => {
   const { handleSubmit, register, reset, control } = useForm();
   const password = useWatch({ control, name: "password" });
@@ -28,6 +29,10 @@ const Signup = () => {
 
   const onSubmit = (data) => {
     dispatch(createUser({ email: data.email, password: data.password }));
+  };
+
+  const handleGoogleLogin = () => {
+    dispatch(googleLogin());
   };
 
   return (
@@ -93,6 +98,13 @@ const Signup = () => {
                   </span>
                 </p>
               </div>
+              <button
+                onClick={handleGoogleLogin}
+                className="flex items-center justify-center w-full py-3 font-bold text-white rounded-full bg-primary"
+              >
+                <AiOutlineGoogle className="mr-2 " />
+                <span>Google</span>
+              </button>
             </div>
           </form>
         </div>
