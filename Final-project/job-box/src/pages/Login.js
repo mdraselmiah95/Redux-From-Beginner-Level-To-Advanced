@@ -1,14 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 
 import { useNavigate } from "react-router-dom";
 import loginImage from "../assets/login.svg";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../features/auth/authSlice";
 const Login = () => {
   const { register, handleSubmit, reset } = useForm();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = ({ email, password }) => {
+    dispatch(loginUser({ email, password }));
   };
   return (
     <div className="flex items-center h-screen">
