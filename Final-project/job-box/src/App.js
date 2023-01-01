@@ -16,7 +16,7 @@ function App() {
         dispatch(setUser(user.email));
       }
     });
-  }, []);
+  }, [dispatch]);
   return (
     <>
       <RouterProvider router={routes} />

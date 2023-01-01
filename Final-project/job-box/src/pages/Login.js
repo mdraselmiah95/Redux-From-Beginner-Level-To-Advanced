@@ -1,18 +1,22 @@
 import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
-
+import { AiOutlineGoogle } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import loginImage from "../assets/login.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "../features/auth/authSlice";
+import { googleLogin, loginUser } from "../features/auth/authSlice";
 const Login = () => {
   const { isLoading, email } = useSelector((state) => state.auth);
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const onSubmit = ({ email, password }) => {
     dispatch(loginUser({ email, password }));
+  };
+
+  const handleGoogleLogin = () => {
+    dispatch(googleLogin());
   };
 
   useEffect(() => {
@@ -66,6 +70,13 @@ const Login = () => {
                   </span>
                 </p>
               </div>
+              <button
+                onClick={handleGoogleLogin}
+                className="flex items-center justify-center w-full py-3 font-bold text-white rounded-full bg-primary"
+              >
+                <AiOutlineGoogle className="mr-2 " />
+                <span>Google</span>
+              </button>
             </div>
           </form>
         </div>
