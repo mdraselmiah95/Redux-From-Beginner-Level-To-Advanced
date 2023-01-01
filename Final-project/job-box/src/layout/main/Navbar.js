@@ -17,8 +17,6 @@ const Navbar = () => {
     });
   };
 
-  // top are
-
   return (
     <nav
       className={`h-14 fixed w-full z-[999] ${
