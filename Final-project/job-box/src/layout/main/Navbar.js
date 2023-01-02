@@ -51,6 +51,16 @@ const Navbar = () => {
             </Link>
           )}
         </li>
+        {email && (
+          <li>
+            <Link
+              className="px-2 py-1 transition-all border border-black rounded-full hover:border-primary hover:text-white hover:bg-primary hover:px-4 "
+              to="/dashboard"
+            >
+              Dashboard
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );
