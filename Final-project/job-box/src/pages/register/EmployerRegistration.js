@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { FaChevronLeft } from "react-icons/fa";
-import { useRegisterMutation } from "../../features/auth/authApi";
 import { useSelector } from "react-redux";
+import toast from "react-hot-toast";
+import { useRegisterMutation } from "../../features/auth/authApi";
 
 const EmployerRegistration = () => {
   const [countries, setCountries] = useState([]);
@@ -11,7 +12,7 @@ const EmployerRegistration = () => {
   const term = useWatch({ control, name: "term" });
   const navigate = useNavigate();
   const { email } = useSelector((state) => state.auth);
-  const [postUser, { isLoading, isError }] = useRegisterMutation();
+  const [postUser, { isLoading, isError, isSuccess }] = useRegisterMutation();
 
   const businessCategory = [
     "Automotive",
@@ -43,11 +44,13 @@ const EmployerRegistration = () => {
   }, []);
 
   const onSubmit = (data) => {
-    console.log(data);
     postUser({ ...data, role: "employer" });
     reset();
   };
 
+  if (isSuccess) {
+    toast.success("Successfully Data inserted 🟢");
+  }
   return (
     <div className="pt-14">
       <div
