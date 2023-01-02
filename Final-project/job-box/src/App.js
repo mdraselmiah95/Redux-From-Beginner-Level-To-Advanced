@@ -9,8 +9,8 @@ import { setUser, toggleLoading } from "./features/auth/authSlice";
 
 function App() {
   // console.log(process.env)
-  const { isLoading } = useSelector((state) => state.auth);
-  console.log(isLoading);
+  // const { isLoading } = useSelector((state) => state.auth);
+  // console.log(isLoading);
   const dispatch = useDispatch();
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
