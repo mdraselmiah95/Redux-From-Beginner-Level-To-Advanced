@@ -16,5 +16,3 @@ function App() {
 }
 
 export default App;
-
-//47:46 ai
