@@ -1,0 +1,19 @@
+
+Store => Will hold all of our application data/state 🎖️
+Reducer => A function who returns a specific amount of state or data
+Action => Events occurs => { type:"Must something"}
+Dispatch 
+Subscriber
+
+
+
+==================*****===================
+
+
+1. create a Reducer
+2. create store with the help of Reducer
+3. Now we can Subscribe
+4. Dispatch(Action)
+
+
+ 

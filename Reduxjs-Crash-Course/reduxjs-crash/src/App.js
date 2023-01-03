@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { createStore } from "redux";
 
 function App() {
+  /**
+   * A reducer function must have two parameters
+   * State ,Action
+   */
+
+  const reducer = (state = {}, action) => {
+    if (action.type === "A") {
+      return {
+        A: "I am A",
+      };
+    }
+    return state;
+  };
+
+  const store = createStore(reducer);
+
+  store.subscribe(() => {
+    console.log(store.getState());
+  });
+
+  store.dispatch({ type: "A" });
+  store.dispatch({ type: "some" });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h2>This is App.</h2>
     </div>
   );
 }
 
 export default App;
+
+//27:46
