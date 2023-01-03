@@ -16,4 +16,51 @@ Subscriber
 4. Dispatch(Action)
 
 
- 
+ Understanding =>
+ /**
+   * State ,Action
+   * A reducer function must have two parameters
+   * @param {object} state
+   * @param {} action
+   * @returns state
+   */
+  const reducer = (state = {}, action) => {
+    if (action.type === "A") {
+      return {
+        ...state,
+        A: "I am A",
+      };
+    }
+    if (action.type === "B") {
+      return {
+        ...state,
+        B: "I am B",
+      };
+    }
+    return state;
+  };
+  // note
+  const store = createStore(reducer);
+
+  store.subscribe(() => {
+    console.log(store.getState().A);
+  });
+
+  store.subscribe(() => {
+    console.log(store.getState().B);
+  });
+
+  store.dispatch({ type: "some" });
+  store.dispatch({ type: "B" });
+  store.dispatch({ type: "some" });
+  store.dispatch({ type: "A" });
+  store.dispatch({ type: "some" });
+
+
+
+** React Redux =>
+/**
+* React will be responsible for only view layer
+* Redux will be responsible for only Data layer
+* React-Redux 
+*/
