@@ -11,7 +11,9 @@ const EmployerRegistration = () => {
   const { handleSubmit, register, control, reset } = useForm();
   const term = useWatch({ control, name: "term" });
   const navigate = useNavigate();
-  const { email } = useSelector((state) => state.auth);
+  const {
+    user: { email },
+  } = useSelector((state) => state.auth);
   const [postUser, { isLoading, isError, isSuccess }] = useRegisterMutation();
 
   const businessCategory = [
