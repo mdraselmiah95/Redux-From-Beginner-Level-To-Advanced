@@ -8,12 +8,18 @@ import { useRegisterMutation } from "../../features/auth/authApi";
 
 const EmployerRegistration = () => {
   const [countries, setCountries] = useState([]);
-  const { handleSubmit, register, control, reset } = useForm();
-  const term = useWatch({ control, name: "term" });
-  const navigate = useNavigate();
   const {
     user: { email },
   } = useSelector((state) => state.auth);
+
+  const { handleSubmit, register, control, reset } = useForm({
+    defaultValues: {
+      email,
+    },
+  });
+
+  const term = useWatch({ control, name: "term" });
+  const navigate = useNavigate();
   const [postUser, { isLoading, isError, isSuccess }] = useRegisterMutation();
 
   const businessCategory = [
@@ -85,9 +91,10 @@ const EmployerRegistration = () => {
               Email
             </label>
             <input
+              disabled
+              className="cursor-not-allowed "
               type="email"
               id="email"
-              defaultValue={email}
               {...register("email")}
             />
           </div>
