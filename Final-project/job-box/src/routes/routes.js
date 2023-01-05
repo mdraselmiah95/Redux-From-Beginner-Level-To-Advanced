@@ -3,12 +3,12 @@ import Dashboard from "../layout/dashboard/Dashboard";
 import Main from "../layout/main/Main";
 import AccountCreator from "../pages/register/AccountCreator";
 import Home from "../pages/home/Home";
-import JobDetails from "../pages/JobDetails";
 import Jobs from "../pages/Jobs";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import PrivateRoute from "../utils/PrivateRoute";
 import AddJob from "../pages/employeeDashboard/AddJob";
+import JobDetails from "../pages/JobDetails";
 import EmployerDashboard from "../pages/employeeDashboard/EmployerDashboard";
 import CandidateDashboard from "../pages/candidateDashboard/CandidateDashboard";
 

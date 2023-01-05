@@ -8,7 +8,7 @@ import { useJobByIdQuery } from "../features/job/jobApi";
 const JobDetails = () => {
   const { user } = useSelector((state) => state.auth);
   const { id } = useParams();
-  const { data, isLoading } = useJobByIdQuery(id);
+  const { data, isLoading, isError } = useJobByIdQuery(id);
   const {
     companyName,
     position,
