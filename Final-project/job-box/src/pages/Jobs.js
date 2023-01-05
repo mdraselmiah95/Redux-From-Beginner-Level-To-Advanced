@@ -1,27 +1,21 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { useGetJobsQuery } from "../features/job/jobApi";
+import JobCard from "../components/reusable/JobCard";
 
 const Jobs = () => {
-  const navigate = useNavigate();
   const { data, isLoading, isError } = useGetJobsQuery();
+
+  if (isLoading) {
+    <p>loading..</p>;
+  }
 
   return (
     <div className="pt-14">
-      <h1>This is job page</h1>
-      <div>
-        {data?.data?.map(({ position, companyName, _id }) => (
-          <div key={_id} className="p-4 border">
-            <h2 className="mb-2 font-bold text-gray-600 ">{position}</h2>
-            <p>{companyName}</p>
-            <button
-              className="px-4 py-2 mt-3 font-bold text-white bg-blue-400 rounded-full hover:bg-blue-600"
-              onClick={() => navigate(`/job-details/${_id}`)}
-            >
-              Details
-            </button>
-          </div>
-        ))}
+      <div className="p-5 bg-primary/10 rounded-2xl">
+        <h1 className="text-xl font-semibold">Find Jobs</h1>
+      </div>
+      <div className="grid grid-cols-2 gap-5 mt-5">
+        <JobCard jobData={data} />
       </div>
     </div>
   );
