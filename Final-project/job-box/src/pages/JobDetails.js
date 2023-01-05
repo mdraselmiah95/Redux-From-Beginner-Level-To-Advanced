@@ -3,7 +3,7 @@ import meeting from "../assets/meeting.jpg";
 import { BsArrowRightShort, BsArrowReturnRight } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
-import { useJobByIdQuery } from "../features/job/jobApi";
+import { useApplyMutation, useJobByIdQuery } from "../features/job/jobApi";
 import { toast } from "react-hot-toast";
 
 const JobDetails = () => {
@@ -11,7 +11,7 @@ const JobDetails = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { data, isLoading, isError } = useJobByIdQuery(id);
-
+  const [apply] = useApplyMutation();
   if (isLoading) {
     return (
       <div className="flex items-center justify-center">
@@ -51,6 +51,7 @@ const JobDetails = () => {
       jobId: _id,
     };
     console.log(data);
+    apply(data);
   };
 
   return (
