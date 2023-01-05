@@ -27,7 +27,6 @@ const AddJob = () => {
   } = useFieldArray({ control, name: "requirements" });
 
   const onSubmit = (data) => {
-    console.log(data);
     postJob(data);
     reset();
   };
