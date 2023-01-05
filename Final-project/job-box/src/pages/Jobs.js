@@ -15,7 +15,7 @@ const Jobs = () => {
         <h1 className="text-xl font-semibold">Find Jobs</h1>
       </div>
       <div className="grid grid-cols-2 gap-5 mt-5">
-        <JobCard jobData={data} />
+        <JobCard jobData={data} isLoading={isLoading} />
       </div>
     </div>
   );

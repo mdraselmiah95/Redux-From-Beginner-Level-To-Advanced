@@ -1,11 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const JobCard = ({ jobData }) => {
+const JobCard = ({ jobData, isLoading }) => {
   console.log(jobData);
   const navigate = useNavigate();
   const { _id, position, companyName, location, employmentType } =
     jobData || {};
+
+  if (isLoading) {
+    <p>loading..</p>;
+  }
 
   return (
     <div
