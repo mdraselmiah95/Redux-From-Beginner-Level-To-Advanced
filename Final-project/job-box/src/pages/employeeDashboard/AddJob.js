@@ -2,9 +2,11 @@ import React from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import { FiTrash } from "react-icons/fi";
 import { usePostJobMutation } from "../../features/job/jobApi";
+import { useSelector } from "react-redux";
 
 const AddJob = () => {
-  const { handleSubmit, register, control } = useForm();
+  const { handleSubmit, register, control, reset } = useForm();
+  const { companyName } = useSelector((state) => state.auth.user);
 
   const [postJob, { isLoading, isError }] = usePostJobMutation();
 
@@ -27,15 +29,16 @@ const AddJob = () => {
   const onSubmit = (data) => {
     console.log(data);
     postJob(data);
+    reset();
   };
 
   return (
-    <div className="flex justify-center items-center overflow-auto p-10">
+    <div className="flex items-center justify-center p-10 overflow-auto">
       <form
-        className="bg-secondary/20 shadow-lg p-10 rounded-2xl flex flex-wrap gap-3 max-w-3xl justify-between"
+        className="flex flex-wrap justify-between max-w-3xl gap-3 p-10 shadow-lg bg-secondary/20 rounded-2xl"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h1 className="w-full text-2xl text-primary mb-5">
+        <h1 className="w-full mb-5 text-2xl text-primary">
           Add a new position
         </h1>
         <div className="flex flex-col w-full max-w-xs">
@@ -49,10 +52,11 @@ const AddJob = () => {
             Company Name
           </label>
           <input
-            disabled
+            readOnly
             className="cursor-not-allowed"
             type="text"
             id="companyName"
+            defaultValue={companyName}
             {...register("companyName")}
           />
         </div>
@@ -112,10 +116,10 @@ const AddJob = () => {
                     <button
                       type="button"
                       onClick={() => skillRemove(index)}
-                      className="grid place-items-center rounded-full flex-shrink-0 bg-red-500/20 border border-red-500 h-11 w-11 group transition-all hover:bg-red-500"
+                      className="grid flex-shrink-0 transition-all border border-red-500 rounded-full place-items-center bg-red-500/20 h-11 w-11 group hover:bg-red-500"
                     >
                       <FiTrash
-                        className="text-red-500 group-hover:text-white transition-all"
+                        className="text-red-500 transition-all group-hover:text-white"
                         size="20"
                       />
                     </button>
@@ -140,7 +144,7 @@ const AddJob = () => {
             <div>
               {resFields.map((item, index) => {
                 return (
-                  <div key={item.key} className=" mb-5 flex items-center gap-3">
+                  <div key={item.key} className="flex items-center gap-3 mb-5 ">
                     <input
                       className="!w-full"
                       type="text"
@@ -149,10 +153,10 @@ const AddJob = () => {
                     <button
                       type="button"
                       onClick={() => resRemove(index)}
-                      className="grid place-items-center rounded-full flex-shrink-0 bg-red-500/20 border border-red-500 h-11 w-11 group transition-all hover:bg-red-500"
+                      className="grid flex-shrink-0 transition-all border border-red-500 rounded-full place-items-center bg-red-500/20 h-11 w-11 group hover:bg-red-500"
                     >
                       <FiTrash
-                        className="text-red-500 group-hover:text-white transition-all"
+                        className="text-red-500 transition-all group-hover:text-white"
                         size="20"
                       />
                     </button>
@@ -177,7 +181,7 @@ const AddJob = () => {
             <div>
               {reqFields.map((item, index) => {
                 return (
-                  <div key={item.key} className=" mb-5 flex items-center gap-3">
+                  <div key={item.key} className="flex items-center gap-3 mb-5 ">
                     <input
                       className="!w-full"
                       type="text"
@@ -186,10 +190,10 @@ const AddJob = () => {
                     <button
                       type="button"
                       onClick={() => reqRemove(index)}
-                      className="grid place-items-center rounded-full flex-shrink-0 bg-red-500/20 border border-red-500 h-11 w-11 group transition-all hover:bg-red-500"
+                      className="grid flex-shrink-0 transition-all border border-red-500 rounded-full place-items-center bg-red-500/20 h-11 w-11 group hover:bg-red-500"
                     >
                       <FiTrash
-                        className="text-red-500 group-hover:text-white transition-all"
+                        className="text-red-500 transition-all group-hover:text-white"
                         size="20"
                       />
                     </button>
@@ -209,7 +213,7 @@ const AddJob = () => {
           </div>
         </div>
 
-        <div className="flex justify-end items-center w-full mt-3">
+        <div className="flex items-center justify-end w-full mt-3">
           <button className="btn" type="submit">
             Submit
           </button>
