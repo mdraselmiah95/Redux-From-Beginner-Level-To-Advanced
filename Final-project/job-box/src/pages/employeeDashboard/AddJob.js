@@ -1,8 +1,9 @@
 import React from "react";
 import { useFieldArray, useForm } from "react-hook-form";
 import { FiTrash } from "react-icons/fi";
-import { usePostJobMutation } from "../../features/job/jobApi";
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
+import { usePostJobMutation } from "../../features/job/jobApi";
 
 const AddJob = () => {
   const { handleSubmit, register, control, reset } = useForm();
@@ -27,7 +28,12 @@ const AddJob = () => {
   } = useFieldArray({ control, name: "requirements" });
 
   const onSubmit = (data) => {
-    postJob(data);
+    postJob({ ...data, application: [], queries: [] });
+    Swal.fire({
+      title: "Success",
+      text: "Data inserted successful",
+      icon: "success",
+    });
     reset();
   };
 
