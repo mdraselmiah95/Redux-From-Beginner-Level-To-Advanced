@@ -137,11 +137,14 @@ const JobDetails = () => {
               </h1>
               <div className="my-2 text-primary">
                 {queries?.map(({ question, email, reply, id, index }) => (
-                  <div key={index}>
+                  <div key={id}>
                     <small>{email}</small>
                     <p className="text-lg font-medium">{question}</p>
-                    {reply?.map((item) => (
-                      <p className="relative flex items-center gap-2 left-5">
+                    {reply?.map((item, index) => (
+                      <p
+                        key={index}
+                        className="relative flex items-center gap-2 left-5"
+                      >
                         <BsArrowReturnRight /> {item}
                       </p>
                     ))}
