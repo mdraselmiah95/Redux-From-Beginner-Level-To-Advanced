@@ -41,7 +41,6 @@ const run = async () => {
       res.send({ status: false });
     });
 
-    function nes(a, b) {}
     app.patch("/apply", async (req, res) => {
       const userId = req.body.userId;
       const jobId = req.body.jobId;

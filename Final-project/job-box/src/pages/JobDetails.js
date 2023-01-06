@@ -10,8 +10,9 @@ const JobDetails = () => {
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const { id } = useParams();
-  const { data, isLoading, isError } = useJobByIdQuery(id);
   const [apply] = useApplyMutation();
+  const { data, isLoading, isError } = useJobByIdQuery(id);
+
   if (isLoading) {
     return (
       <div className="flex items-center justify-center">
@@ -19,7 +20,6 @@ const JobDetails = () => {
       </div>
     );
   }
-
   const {
     companyName,
     position,
@@ -39,6 +39,7 @@ const JobDetails = () => {
   const handleApply = () => {
     if (user.role === "employer") {
       toast.error("You need a candidate account to apply");
+      return;
     }
 
     if (user.role === "") {
@@ -51,7 +52,7 @@ const JobDetails = () => {
       jobId: _id,
     };
     console.log(data);
-    // apply(data);
+    apply(data);
   };
 
   return (
