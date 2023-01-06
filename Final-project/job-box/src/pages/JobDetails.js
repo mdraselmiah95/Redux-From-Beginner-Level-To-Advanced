@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import meeting from "../assets/meeting.jpg";
 import { BsArrowRightShort, BsArrowReturnRight } from "react-icons/bs";
 import { useSelector } from "react-redux";
@@ -12,6 +12,7 @@ import {
 import { toast } from "react-hot-toast";
 
 const JobDetails = () => {
+  const [reply, setReply] = useState("");
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -72,6 +73,14 @@ const JobDetails = () => {
     sendQuestion(queData);
     console.log(queData);
     reset();
+  };
+
+  const handleReply = (id) => {
+    const data = {
+      reply,
+      userId: id,
+    };
+    console.log(data);
   };
 
   return (
@@ -155,10 +164,12 @@ const JobDetails = () => {
                           placeholder="Reply"
                           type="text"
                           className="w-full"
+                          onBlur={(e) => setReply(e.target.value)}
                         />
                         <button
                           className="grid transition-all border rounded-full shrink-0 h-14 w-14 bg-primary/10 border-primary hover:bg-primary place-items-center text-primary hover:text-white"
                           type="button"
+                          onClick={() => handleReply(id)}
                         >
                           <BsArrowRightShort size={30} />
                         </button>
@@ -167,7 +178,6 @@ const JobDetails = () => {
                   </div>
                 ))}
               </div>
-
               {user.role === "employee" && (
                 <form onSubmit={handleSubmit(handleQuestion)}>
                   <div className="flex gap-3 my-5">
