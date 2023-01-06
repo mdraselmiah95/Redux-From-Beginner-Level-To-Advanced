@@ -8,6 +8,7 @@ import {
   useApplyMutation,
   useJobByIdQuery,
   useQuestionMutation,
+  useReplyMutation,
 } from "../features/job/jobApi";
 import { toast } from "react-hot-toast";
 
@@ -19,6 +20,7 @@ const JobDetails = () => {
   const { register, handleSubmit, reset } = useForm();
   const [apply] = useApplyMutation();
   const [sendQuestion] = useQuestionMutation();
+  const [sendReply] = useReplyMutation();
   const { data, isLoading, isError } = useJobByIdQuery(id);
 
   if (isLoading) {
@@ -71,7 +73,6 @@ const JobDetails = () => {
       jobId: _id,
     };
     sendQuestion(queData);
-    console.log(queData);
     reset();
   };
 
@@ -80,7 +81,7 @@ const JobDetails = () => {
       reply,
       userId: id,
     };
-    console.log(data);
+    sendReply(data);
   };
 
   return (
