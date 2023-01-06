@@ -23,6 +23,8 @@ const JobDetails = () => {
   const [sendReply] = useReplyMutation();
   const { data, isLoading, isError } = useJobByIdQuery(id);
 
+  // TODO => pollingInterval is use for fetching data in real time   { pollingInterval: 500, }
+
   if (isLoading) {
     return (
       <div className="flex items-center justify-center">
@@ -162,6 +164,7 @@ const JobDetails = () => {
                     {user.role === "employer" && (
                       <div className="flex gap-3 my-5">
                         <input
+                          required
                           placeholder="Reply"
                           type="text"
                           className="w-full"
@@ -183,6 +186,7 @@ const JobDetails = () => {
                 <form onSubmit={handleSubmit(handleQuestion)}>
                   <div className="flex gap-3 my-5">
                     <input
+                      required
                       placeholder="Ask a question..."
                       type="text"
                       className="w-full"
