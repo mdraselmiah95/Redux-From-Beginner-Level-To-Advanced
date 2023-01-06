@@ -51,7 +51,7 @@ const JobDetails = () => {
       jobId: _id,
     };
     console.log(data);
-    apply(data);
+    // apply(data);
   };
 
   return (
