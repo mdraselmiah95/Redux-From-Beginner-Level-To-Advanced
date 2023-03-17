@@ -7,11 +7,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import accountSlice from "./slices/accountSlice";
 import bonusSlice from "./slices/bonusSlice";
+import rewardReducer from "./reducers/reward";
 
 const store = configureStore({
   reducer: {
     account: accountSlice,
     bonus: bonusSlice,
+    reward: rewardReducer,
   },
 });
 
