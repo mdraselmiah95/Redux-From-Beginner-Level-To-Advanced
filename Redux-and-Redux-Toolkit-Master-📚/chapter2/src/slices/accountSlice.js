@@ -19,3 +19,7 @@ export const accountSlice = createSlice({
     },
   },
 });
+
+export const { decrement, increment, incrementByAmount } = accountSlice.actions;
+
+export default accountSlice.reducer;
