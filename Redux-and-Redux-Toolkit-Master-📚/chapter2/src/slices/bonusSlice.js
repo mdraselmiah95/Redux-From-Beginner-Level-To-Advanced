@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  points: 1,
+  points: 10,
 };
 
 export const bonusSlice = createSlice({

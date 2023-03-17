@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  amount: 1,
+  amount: 0,
 };
 
 export const accountSlice = createSlice({
@@ -15,7 +15,7 @@ export const accountSlice = createSlice({
       state.amount -= 1;
     },
     incrementByAmount: (state, action) => {
-      state.value += action.payload;
+      state.amount += action.payload;
     },
   },
 });
