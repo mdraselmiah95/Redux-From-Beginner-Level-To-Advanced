@@ -11,7 +11,13 @@ function App() {
   return (
     <div className="App">
       <h4>App</h4>
-      {account.pending ? <p>Loading...</p> : <h3>Current Amount : {amount}</h3>}
+      {account.pending ? (
+        <p>loading....</p>
+      ) : account.error ? (
+        <p>{account.error}</p>
+      ) : (
+        <h3>Current Amount : {amount} </h3>
+      )}
       <h3>Total Bonus : {points} </h3>
       <Account />
       <Bonus />
