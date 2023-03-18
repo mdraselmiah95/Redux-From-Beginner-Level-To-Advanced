@@ -6,8 +6,24 @@ export const adminApi = createApi({
   endpoints: (builder) => ({
     getAccounts: builder.query({
       query: () => `accounts`,
+      providesTags: ["accounts"],
+    }),
+    addAccount: builder.mutation({
+      query: (amount, id) => ({
+        url: "accounts",
+        method: "POST",
+        body: { amount, id },
+      }),
+      invalidatesTags: ["accounts"],
+    }),
+    deleteAccount: builder.mutation({
+      query: (id) => ({
+        url: `accounts/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["accounts"],
     }),
   }),
 });
 
-export const { useGetAccountsQuery } = adminApi;
+export const { useGetAccountsQuery, useAddAccountMutation } = adminApi;
