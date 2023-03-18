@@ -6,7 +6,6 @@ import { fetchAsync } from "./productsSlice";
 
 const Products = () => {
   const dispatch = useDispatch();
-  // const products = useSelector((state) => state.product.products);
   const { products, status } = useSelector((state) => state.product);
 
   useEffect(() => {
