@@ -7,15 +7,17 @@ import {
 } from "../api/adminSlice";
 
 const Admin = () => {
-  const { isError, isLoading, data, error } = useGetAccountsQuery();
+  const { isLoading, data, isSuccess } = useGetAccountsQuery();
   const [addAccount] = useAddAccountMutation();
   const [deleteAccount] = useDeleteAccountMutation();
   const [updateAccount] = useUpdateAccountMutation();
 
   return (
     <div className="admin">
-      <h2>This is Admin {isLoading ? <p>Loading...</p> : ""}</h2>
-      {data &&
+      <h2>This is Admin</h2>
+      {isLoading ? <p>Loading...</p> : null}
+      {isSuccess &&
+        data &&
         data.map((account) => (
           <p key={account.id}>
             {account.id} : {account.amount}

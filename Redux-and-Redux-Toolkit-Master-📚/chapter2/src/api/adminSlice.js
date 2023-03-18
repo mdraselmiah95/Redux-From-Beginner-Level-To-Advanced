@@ -6,6 +6,7 @@ export const adminApi = createApi({
   endpoints: (builder) => ({
     getAccounts: builder.query({
       query: () => `accounts`,
+      transformResponse: (response) => response.sort((a, b) => b.id - a.id),
       providesTags: ["accounts"],
     }),
     addAccount: builder.mutation({
