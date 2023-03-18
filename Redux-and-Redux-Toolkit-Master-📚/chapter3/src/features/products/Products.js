@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Dna } from "react-loader-spinner";
 import "./Products.css";
 import { fetchAsync } from "./productsSlice";
 
 const Products = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.product.products);
+  // const products = useSelector((state) => state.product.products);
+  const { products, status } = useSelector((state) => state.product);
 
   useEffect(() => {
     dispatch(fetchAsync());
@@ -17,9 +19,20 @@ const Products = () => {
         style={{
           display: "grid",
           gap: "10px",
+          alignItems: "center",
           gridTemplateColumns: "repeat(3, 1fr)",
         }}
       >
+        {status === "loading" ? (
+          <Dna
+            visible={true}
+            height="150"
+            width="1500"
+            ariaLabel="dna-loading"
+            wrapperStyle={{}}
+            wrapperClass="dna-wrapper"
+          />
+        ) : null}
         {products.map((product) => (
           <div className="card" key={product.id}>
             <img
