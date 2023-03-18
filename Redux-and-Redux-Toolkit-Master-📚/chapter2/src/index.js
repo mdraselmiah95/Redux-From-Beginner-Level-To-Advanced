@@ -8,13 +8,17 @@ import { Provider } from "react-redux";
 import accountSlice from "./slices/accountSlice";
 import bonusSlice from "./slices/bonusSlice";
 import rewardReducer from "./reducers/reward";
+import { adminApi } from "./api/adminSlice";
 
 const store = configureStore({
   reducer: {
     account: accountSlice,
     bonus: bonusSlice,
     reward: rewardReducer,
+    [adminApi.reducerPath]: adminApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(adminApi.middleware),
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
