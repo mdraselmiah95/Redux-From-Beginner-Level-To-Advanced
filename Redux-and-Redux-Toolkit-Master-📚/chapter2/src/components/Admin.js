@@ -1,9 +1,16 @@
 import React from "react";
-import { useAddAccountMutation, useGetAccountsQuery } from "../api/adminSlice";
+import {
+  useAddAccountMutation,
+  useDeleteAccountMutation,
+  useGetAccountsQuery,
+  useUpdateAccountMutation,
+} from "../api/adminSlice";
 
 const Admin = () => {
   const { isError, isLoading, data, error } = useGetAccountsQuery();
-  const [addAccount, response] = useAddAccountMutation();
+  const [addAccount] = useAddAccountMutation();
+  const [deleteAccount] = useDeleteAccountMutation();
+  const [updateAccount] = useUpdateAccountMutation();
 
   return (
     <div className="admin">
@@ -12,11 +19,17 @@ const Admin = () => {
         data.map((account) => (
           <p key={account.id}>
             {account.id} : {account.amount}
+            <button onClick={() => deleteAccount(account.id)}>DELETE</button>
+            <button
+              onClick={() => updateAccount({ id: account.id, amount: 202 })}
+            >
+              UPDATE
+            </button>
           </p>
         ))}
       <button onClick={() => addAccount(101, data.length + 1)}>ADD</button>
     </div>
   );
 };
-// top if
+
 export default Admin;
