@@ -36,3 +36,42 @@ export const updateAsync = createAsyncThunk(
     return response.data;
   }
 );
+
+export const cartSlice = createSlice({
+  name: "cart",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchAsync.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.items = action.payload;
+      })
+      .addCase(addAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.items.push(action.payload);
+      })
+      .addCase(deleteAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        const index = state.items.findIndex(
+          (item) => item.id === action.payload
+        );
+        state.items.splice(index, 1);
+      })
+      .addCase(updateAsync.fulfilled, (state, action) => {
+        state.status = "idle";
+        const index = state.items.findIndex(
+          (item) => item.id === action.payload.id
+        );
+        console.log(index, action.payload);
+        state.items.splice(index, 1, action.payload);
+      });
+  },
+});
+
+// export const { } = cartSlice.actions;
+
+export default cartSlice.reducer;
