@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Dna } from "react-loader-spinner";
 import "./Products.css";
 import { fetchAsync } from "./productsSlice";
+import { addAsync } from "../cart/cartSlice";
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -43,7 +44,9 @@ const Products = () => {
             <p className="price">${product.price}</p>
             <p>{product.description}</p>
             <p>
-              <button>Add to Cart</button>
+              <button onClick={() => dispatch(addAsync(product))}>
+                Add to Cart
+              </button>
             </p>
           </div>
         ))}

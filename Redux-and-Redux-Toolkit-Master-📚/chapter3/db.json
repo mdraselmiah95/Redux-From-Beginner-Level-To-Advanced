@@ -48,7 +48,9 @@
       "brand": "Samsung",
       "category": "smartphones",
       "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-      "images": ["https://i.dummyjson.com/data/products/3/1.jpg"]
+      "images": [
+        "https://i.dummyjson.com/data/products/3/1.jpg"
+      ]
     },
     {
       "id": 4,
@@ -553,19 +555,19 @@
   ],
   "cart": [
     {
-      "id": 1,
-      "title": "iPhone 9",
-      "brand": "Apple",
-      "thumbnail": "https://i.dummyjson.com/data/products/1/thumbnail.jpg",
-      "price": 549,
+      "id": 3,
+      "title": "Samsung Universe 9",
+      "brand": "Samsung",
+      "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
+      "price": 1249,
       "quantity": 1
     },
     {
-      "id": 4,
-      "title": "OPPOF19",
-      "brand": "OPPO",
-      "thumbnail": "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
-      "price": 280,
+      "id": 17,
+      "title": "Tree Oil 30ml",
+      "brand": "Hemani Tea",
+      "thumbnail": "https://i.dummyjson.com/data/products/17/thumbnail.jpg",
+      "price": 12,
       "quantity": 1
     }
   ]

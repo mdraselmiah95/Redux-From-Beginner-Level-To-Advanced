@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { deleteAsync } from "./cartSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -8,8 +9,15 @@ const Cart = () => {
   return (
     <div>
       <div>
-        {items.map((item) => (
-          <div className="cart-item">
+        {items.map((item, index) => (
+          <div
+            className="cart-item"
+            key={item.id || index}
+            style={{
+              borderBottom: "2px solid gray",
+              padding: "15px 0",
+            }}
+          >
             <img className="img-fluid" src={item.thumbnail} alt="" />
             <div className="description">
               <p>{item.title}</p>
@@ -28,7 +36,7 @@ const Cart = () => {
               </select>
             </div>
             <div className="close">
-              {/* <button onClick={() => dispatch(deleteAsync(item.id))}>X</button> */}
+              <button onClick={() => dispatch(deleteAsync(item.id))}>X</button>
             </div>
           </div>
         ))}
