@@ -7,7 +7,7 @@ import {
 } from "./sagaCartSlice";
 import { addItem, fetchItems } from "./cartApi";
 
-// Worker saga will be fired on USER_FETCH_REQUESTED actions
+// Worker saga will be fired on USER_FETCH_REQUESTED actions to the
 function* getCartItems(action) {
   const response = yield call(fetchItems);
   yield put({ type: fetchAsyncFulfilled.toString(), payload: response.data });
