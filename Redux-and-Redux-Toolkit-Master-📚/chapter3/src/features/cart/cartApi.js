@@ -13,5 +13,3 @@ export function updateItem(id, itemUpdate) {
 export function deleteItem(id) {
   return axios.delete(`http://localhost:8080/cart/${id}`);
 }
-
-//[this] [This is cool==>> the common ==>>]
