@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteAsync } from "./cartSlice";
+import { deleteAsync, updateAsync } from "./cartSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
+
+  const handleChange = (e, id) => {
+    dispatch(updateAsync({ id, change: { quantity: +e.target.value } }));
+  };
 
   return (
     <div>
@@ -28,7 +32,7 @@ const Cart = () => {
               Quantity
               <select
                 value={item.quantity}
-                // onChange={(e) => handleChange(e, item.id)}
+                onChange={(e) => handleChange(e, item.id)}
               >
                 <option value={1}>1</option>
                 <option value={2}>2</option>

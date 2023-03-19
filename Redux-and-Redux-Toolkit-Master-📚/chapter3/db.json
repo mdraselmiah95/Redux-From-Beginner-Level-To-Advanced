@@ -560,7 +560,7 @@
       "brand": "Samsung",
       "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
       "price": 1249,
-      "quantity": 1
+      "quantity": 3
     },
     {
       "id": 17,
@@ -568,7 +568,7 @@
       "brand": "Hemani Tea",
       "thumbnail": "https://i.dummyjson.com/data/products/17/thumbnail.jpg",
       "price": 12,
-      "quantity": 1
+      "quantity": 2
     }
   ]
 }

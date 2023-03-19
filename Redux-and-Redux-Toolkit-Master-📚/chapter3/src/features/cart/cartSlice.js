@@ -66,7 +66,6 @@ export const cartSlice = createSlice({
         const index = state.items.findIndex(
           (item) => item.id === action.payload.id
         );
-        console.log(index, action.payload);
         state.items.splice(index, 1, action.payload);
       });
   },
